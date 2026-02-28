@@ -12,6 +12,11 @@ public struct CustomTabView<TabItem: CustomTabItem, Content: View>: View {
     
     @ViewBuilder let content: (TabItem) -> Content
     
+    public init(selectedTab: Binding<TabItem>, content: @escaping (TabItem) -> Content) {
+        self._selectedTab = selectedTab
+        self.content = content
+    }
+    
     public var body: some View {
         TabView(selection: $selectedTab) {
             ForEach(Array(TabItem.allCases)) { tab in
