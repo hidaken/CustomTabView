@@ -51,12 +51,36 @@ private struct CustomTabSampleView: View {
     
     var body: some View {
         CustomTabView(selectedTab: $selectedTab) { tab in
-            
-            HStack(spacing: 8) {
-                Image(systemName: tab.imageSystemName)
-                Text("\(tab.labelTitle)")
+            switch tab {
+            case .first:
+                HStack(spacing: 8) {
+                    Image(systemName: tab.imageSystemName)
+                    Text("\(tab.labelTitle)")
+                }
+                .foregroundStyle(.red)
+                .font(.largeTitle)
+            case .second:
+                VStack(spacing: 8) {
+                    Image(systemName: tab.imageSystemName)
+                    Text("\(tab.labelTitle)")
+                }
+                .foregroundStyle(.blue)
+                .font(.largeTitle)
+            case .third:
+                HStack(spacing: 8) {
+                    Image(systemName: tab.imageSystemName)
+                    Text("\(tab.labelTitle)")
+                }
+                .foregroundStyle(.yellow)
+                .font(.largeTitle)
+            case .search:
+                HStack(spacing: 8) {
+                    Image(systemName: tab.imageSystemName)
+                    Text("\(tab.labelTitle)")
+                }
+                .foregroundStyle(.green)
+                .font(.largeTitle)
             }
-            .font(.largeTitle)
         }
     }
 }

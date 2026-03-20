@@ -12,7 +12,7 @@ public struct CustomTabView<TabItem: CustomTabItem, Content: View>: View {
     
     @ViewBuilder let content: (TabItem) -> Content
     
-    public init(selectedTab: Binding<TabItem>, content: @escaping (TabItem) -> Content) {
+    public init(selectedTab: Binding<TabItem>, @ViewBuilder content: @escaping (TabItem) -> Content) {
         self._selectedTab = selectedTab
         self.content = content
     }
